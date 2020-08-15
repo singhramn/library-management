@@ -1,0 +1,52 @@
+#Register on eureka
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone:  http://localhost:8761/eureka
+#      instance:
+#        preferIpAddress:  true
+#    registerWithEureka: true
+#    fetchRegistry: true
+        
+#Static port
+server:
+  port: 9082
+  servlet:
+    context-path: /library-mgmt
+
+spring:
+  datasource:
+    driverClassName: org.h2.Driver
+    url: jdbc:h2:mem:librarydb;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
+    hikari:
+      maximum-pool-size: 10
+      connection-timeout: 60000
+      minimum-idle: 1
+      cache-prep-stmts: true
+      prep-stmt-cache-size: 256
+      prep-stmt-cache-sql-limit: 2048
+      use-server-prep-stmts: true
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        generate_statistics: true
+        format_sql: true
+logging:
+   level:
+    org:
+      hibernate:
+        type: trace
+        stat: debug
+
+route:
+  error: /error
+    
+
+    
