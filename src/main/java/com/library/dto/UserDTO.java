@@ -22,7 +22,7 @@ public class UserDTO {
 	private String address;
 	
 	/** The phone Number. */
-	private String phoneUmber;
+	private String phoneNumber;
 	
 	/** The role id. */
 	private String roleId;

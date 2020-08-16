@@ -171,7 +171,7 @@ public class UserController {
 				UserDTO userdto = new UserDTO();
 				userdto.setUserId(user.getUserId());
 				userdto.setUserName(user.getUserName());
-				userdto.setPhoneUmber(user.getPhoneNumber());
+				userdto.setPhoneNumber(user.getPhoneNumber());
 				userdto.setEmail(user.getEmail());
 				booksList.add(userdto);
 			}

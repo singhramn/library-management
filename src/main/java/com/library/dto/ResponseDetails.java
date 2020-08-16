@@ -3,10 +3,9 @@
  */
 package com.library.dto;
 
-import lombok.Data;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 
 /**
  * The Class ResponseDetails.
@@ -20,11 +19,9 @@ public class ResponseDetails {
 	private String messageId;
 	
 	/** The status. */
-	 @NonNull
 	private  String status;
 	
 	/** The message. */
-	 @NonNull
 	private String message;
 	
 	 
