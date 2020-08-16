@@ -51,14 +51,6 @@ public interface UserService {
 	public User updateUserDetails(User user);
 	
 	/**
-	 * Change password.
-	 *
-	 * @param user the user
-	 * @return the user
-	 */
-	public User changePassword(User user);
-	
-	/**
 	 * Update role.
 	 *
 	 * @param user the user

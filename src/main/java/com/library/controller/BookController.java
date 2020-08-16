@@ -43,11 +43,11 @@ import com.library.utils.ObjectMapperUtils;
 public class BookController {
 
 	/** The Constant LOGGER. */
-	private static final Logger LOGGER = LoggerFactory.getLogger(BookController.class);
+	 static final Logger LOGGER = LoggerFactory.getLogger(BookController.class);
 
 	/** The book service. */
 	@Autowired
-	BookService bookService;
+	private BookService bookService;
 
 	/**
 	 * Adds the book.
@@ -70,8 +70,8 @@ public class BookController {
 				if (validator.isValid(bookto.getIsbn())) {
 					resBook = ObjectMapperUtils.map((bookService.addBook(ObjectMapperUtils.map(bookto, Book.class))),
 							BookDTO.class);
-					responseDetails.setMessageID(Long.toString(resBook.getBookId()));
-					responseDetails.setMessageReason("Book Added successfully");
+					responseDetails.setMessageId(Long.toString(resBook.getBookId()));
+					responseDetails.setMessage("Book Added successfully");
 				} else {
 					throw new LibraryException(isbn, ": getMessage Starts: " + AppConstants.ISBN_NOT_FOUND);
 				}
@@ -104,8 +104,8 @@ public class BookController {
 		try {
 			BookDTO resBook = ObjectMapperUtils
 					.map((bookService.updateBook(ObjectMapperUtils.map(bookDto, Book.class))), BookDTO.class);
-			responseDetails.setMessageID(Long.toString(resBook.getBookId()));
-			responseDetails.setMessageReason("Book Updated successfully");
+			responseDetails.setMessageId(Long.toString(resBook.getBookId()));
+			responseDetails.setMessage("Book Updated successfully");
 		} catch (ConstraintViolationException e) {
 			throw new LibraryException(AppConstants.DATABASE_EXCEPTION,
 					"getCause: " + e.getCause() + " :  getMessage Starts:  " + e.getMessage());
@@ -133,10 +133,10 @@ public class BookController {
 		ResponseDetails responseDetails = new ResponseDetails();
 		try {
 			if (bookService.deleteBookById(id)) {
-				responseDetails.setMessageID(Long.toString(id));
-				responseDetails.setMessageReason("Book Deleted Sucessfully");
+				responseDetails.setMessageId(Long.toString(id));
+				responseDetails.setMessage("Book Deleted Sucessfully");
 			} else {
-				responseDetails.setMessageReason("Unable to delete book, book is checked out already.");
+				responseDetails.setMessage("Unable to delete book, book is checked out already.");
 			}
 		} catch (HibernateException e) {
 			throw new LibraryException(AppConstants.DATABASE_EXCEPTION,

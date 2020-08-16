@@ -14,6 +14,7 @@ import org.mockito.MockitoAnnotations;
 
 import com.library.dao.repositories.UserRepository;
 import com.library.entity.User;
+import com.library.service.impl.UserServiceImpl;
 
 public class UserServiceTest {
 

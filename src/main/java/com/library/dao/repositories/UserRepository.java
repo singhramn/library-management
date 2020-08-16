@@ -11,19 +11,13 @@ import com.library.entity.User;
  * The Interface UserRepository.
  */
 public interface UserRepository extends JpaRepository<User, Long> {
-	
+
 	/**
 	 * Find user by email.
 	 *
 	 * @param email the email
 	 * @return the list
 	 */
-	List<User> findUserByEmail(String email);
-	
-	/**
-	 * Find all.
-	 *
-	 * @return the list
-	 */
-	List<User> findAll();
+	public List<User> findUserByEmail(String email);
+
 }

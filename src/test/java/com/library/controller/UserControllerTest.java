@@ -1,4 +1,4 @@
-package com.liabrary.controller;
+package com.library.controller;
 
 
 import static org.junit.Assert.assertEquals;
@@ -11,7 +11,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
@@ -28,11 +27,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.library.LibraryManagement;
-import com.library.dto.UserDTO;
 import com.library.dto.ResponseDetails;
+import com.library.dto.UserDTO;
 
-
-// TODO: Auto-generated Javadoc
 /**
  * The Class UserControllerTest.
  */
@@ -50,11 +47,7 @@ public class UserControllerTest {
     @Autowired
     WebApplicationContext webApplicationContext;
 
-    /** The my propertytestapp. */
-    @Value("${myProperty.test.app:0}")
-    private String myPropertytestapp;
-
-    /**
+     /**
      * Sets the up.
      */
     @Before
@@ -101,7 +94,6 @@ public class UserControllerTest {
         UserDTO UserDTO = new UserDTO();
         UserDTO.setUserId(1);
         UserDTO.setUserName("Ram");
-        UserDTO.setPassword("Ram");
         UserDTO.setRoleId("1");
         UserDTO.setPhoneUmber("98111111");
         UserDTO.setAddress("Noida");
@@ -114,7 +106,7 @@ public class UserControllerTest {
         assertEquals(200, status);
         String content = mvcResult.getResponse().getContentAsString();
         ResponseDetails response = mapFromJson(content, ResponseDetails.class);
-        assertEquals("User Added successfully", response.getMessageReason());
+        assertEquals("User Added successfully", response.getMessage());
         System.out.println(" testAddBook Successfull");
     }
 

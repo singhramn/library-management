@@ -10,16 +10,16 @@ import lombok.Data;
 @Data
 public class LibraryDTO {
 	
-	/** The lib id. */
+	/** The library id. */
 	private long libId;
 	
-	/** The lib name. */
+	/** The library name. */
 	private String libName;
 	
 	/** The address. */
 	private String address;
 	
-	/** The address. */
+	/** The phoneNumber */
 	private String phoneNumber;
 	
 }

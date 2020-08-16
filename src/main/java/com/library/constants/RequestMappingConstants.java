@@ -11,12 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class RequestMappingConstants {
 
 	/**
-	 * Instantiates a new request mapping constants.
-	 */
-	private RequestMappingConstants() {
-	}
-
-	/**
 	 * This block provides constants for {@link RequestMapping} urls related to
 	 * {@link bookController}.
 	 */
@@ -44,8 +38,6 @@ public class RequestMappingConstants {
 	/**  The Constant CANCEL_BORROW_BOOK_REQUEST. */
 	public static final String CANCEL_BORROW_BOOK_REQUEST = "/cancleborrowbook/{isbn}/{user_id}";
 	
-	
-	
 	/** The Constant LIST_BOOKS. */
 	public static final String LIST_BOOKS = "/listBooks";
 
@@ -67,15 +59,11 @@ public class RequestMappingConstants {
 	/** The Constant ASSIGN_ROLE. */
 	public static final String ASSIGN_ROLE = "/assignrole";
 	
-	/** The Constant CHANGE_PASSWORD. */
-	public static final String CHANGE_PASSWORD = "/changePassword";
-	
 	/** The Constant UPDATE_ROLE. */
 	public static final String UPDATE_ROLE = "/updaterole";
 	
 	/** The Constant DELETE_USER. */
 	public static final String LIST_USER = "/listusers";
-
 
 	/**
 	 * This block provides constants for {@link RequestMapping} urls related to

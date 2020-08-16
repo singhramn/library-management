@@ -44,7 +44,7 @@ public class UserController {
 
 	/** The user service. */
 	@Autowired
-	UserService userService;
+	private UserService userService;
 
 	/**
 	 * Adds the user.
@@ -63,8 +63,8 @@ public class UserController {
 		try {
 			UserDTO resUser = ObjectMapperUtils.map((userService.addUser(ObjectMapperUtils.map(userDto, User.class))),
 					UserDTO.class);
-			responseDetails.setMessageID(Long.toString(resUser.getUserId()));
-			responseDetails.setMessageReason("User Added successfully");
+			responseDetails.setMessageId(Long.toString(resUser.getUserId()));
+			responseDetails.setMessage("User Added successfully");
 		} catch (Exception e) {
 			throw new LibraryException(AppConstants.EXCEPTION,
 					"getCause: " + e.getCause() + ": getMessage Starts: " + e.getMessage());
@@ -92,41 +92,13 @@ public class UserController {
 		try {
 			UserDTO resUser = ObjectMapperUtils
 					.map((userService.updateUserDetails(ObjectMapperUtils.map(userDTO, User.class))), UserDTO.class);
-			responseDetails.setMessageID(Long.toString(resUser.getUserId()));
-			responseDetails.setMessageReason("User Updated successfully");
+			responseDetails.setMessageId(Long.toString(resUser.getUserId()));
+			responseDetails.setMessage("User Updated successfully");
 		} catch (Exception e) {
 			throw new LibraryException(AppConstants.EXCEPTION,
 					"getCause: " + e.getCause() + ": getMessage Starts: " + e.getMessage());
 		}
 		LOGGER.info("updateUserDetails execution end");
-		return new ResponseEntity<ResponseDetails>(responseDetails, HttpStatus.OK);
-	}
-
-	/**
-	 * Change password.
-	 *
-	 * @param userDTO the user DTO
-	 * @param request the request
-	 * @return the response entity
-	 * @throws LibraryException the library exception
-	 */
-	@ResponseStatus(HttpStatus.CREATED)
-	@PutMapping(value = RequestMappingConstants.CHANGE_PASSWORD)
-	@ResponseBody
-	public ResponseEntity<?> changePassword(@RequestBody UserDTO userDTO)
-			throws LibraryException {
-		LOGGER.info("changePassword execution starts");
-		ResponseDetails responseDetails = new ResponseDetails();
-		try {
-			UserDTO resUser = ObjectMapperUtils
-					.map((userService.updateUserDetails(ObjectMapperUtils.map(userDTO, User.class))), UserDTO.class);
-			responseDetails.setMessageID(Long.toString(resUser.getUserId()));
-			responseDetails.setMessageReason("Password Updated successfully");
-		} catch (Exception e) {
-			throw new LibraryException(AppConstants.EXCEPTION,
-					"getCause: " + e.getCause() + ": getMessage Starts: " + e.getMessage());
-		}
-		LOGGER.info("changePassword execution end");
 		return new ResponseEntity<ResponseDetails>(responseDetails, HttpStatus.OK);
 	}
 
@@ -148,8 +120,8 @@ public class UserController {
 		try {
 			UserDTO resUser = ObjectMapperUtils
 					.map((userService.updateUserDetails(ObjectMapperUtils.map(userDTO, User.class))), UserDTO.class);
-			responseDetails.setMessageID(Long.toString(resUser.getUserId()));
-			responseDetails.setMessageReason("Password Updated successfully");
+			responseDetails.setMessageId(Long.toString(resUser.getUserId()));
+			responseDetails.setMessage("Password Updated successfully");
 		} catch (Exception e) {
 			throw new LibraryException(AppConstants.EXCEPTION,
 					"getCause: " + e.getCause() + ": getMessage Starts: " + e.getMessage());
@@ -172,7 +144,7 @@ public class UserController {
 
 		try {
 			if (userService.deleteUserById(id)) {
-				responseDetails.setMessageReason("User Deleted Sucessfully");
+				responseDetails.setMessage("User Deleted Sucessfully");
 			}
 		} catch (Exception e) {
 			throw new LibraryException(AppConstants.EXCEPTION,

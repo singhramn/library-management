@@ -32,9 +32,9 @@ public class LibraryManagement {
 	}
 
 	/**
-	 * Model mapper.
+	 * Model Mapper.
 	 *
-	 * @return the model mapper
+	 * @return the model Mapper
 	 */
 	@Bean
 	public ModelMapper modelMapper() {
@@ -68,9 +68,9 @@ public class LibraryManagement {
 	}
 
 	/**
-	 * Locale change interceptor.
+	 * Locale change Interceptor.
 	 *
-	 * @return the locale change interceptor
+	 * @return the locale change Interceptor
 	 */
 	@Bean
 	public LocaleChangeInterceptor localeChangeInterceptor() {

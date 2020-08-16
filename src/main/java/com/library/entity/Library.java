@@ -20,13 +20,13 @@ import lombok.Data;
 @Data
 public class Library {
 	
-	/** The lib id. */
+	/** The library id. */
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	@Column(name = "LIBRARY_ID", length = 8, unique = true, nullable = false)
 	private long libId;
 
-	/** The lib name. */
+	/** The library name. */
 	@Column(name = "LIBRARY_NAME", nullable = false, unique = true)
 	private String libName;
 
@@ -34,7 +34,7 @@ public class Library {
 	@Column(name = "ADDRESS", nullable = false)
 	private String address;
 	
-	/** The phone umber. */
+	/** The phone Number. */
 	@Column(name = "PHONE_NUMBER", nullable = false)
 	private String phoneNumber;
 

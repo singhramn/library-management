@@ -1,7 +1,7 @@
 /*
  * 
  */
-package com.library.service;
+package com.library.service.impl;
 
 
 import java.util.List;
@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.library.dao.repositories.UserRepository;
 import com.library.entity.User;
+import com.library.service.UserService;
 
 /**
  * The Class UserServiceImpl.
@@ -63,6 +64,7 @@ public class UserServiceImpl implements UserService {
      * @return the user
      */
     @Override
+    @Transactional
     public User updateUserDetails(User user) {
     	User userToUpdate = userRepository.getOne(user.getUserId());
 		userToUpdate.setAddress(user.getAddress());
@@ -71,30 +73,17 @@ public class UserServiceImpl implements UserService {
        
     }
     
-    /**
-     * Change password.
-     *
-     * @param user the user
-     * @return the user
-     */
-    @Override
-    public User changePassword(User user) {
-    	User userToUpdate = userRepository.getOne(user.getUserId());
-		userToUpdate.setPassword(user.getPassword());
-		return userRepository.save(userToUpdate);
-       
-    }
-   
-    /**
+     /**
      * Update role.
      *
      * @param user the user
      * @return the user
      */
     @Override
+    @Transactional
     public User updateRole(User user) {
     	User userToUpdate = userRepository.getOne(user.getUserId());
-		userToUpdate.setRoleId(user.getPassword());
+		userToUpdate.setRoleId(user.getRoleId());
 		return userRepository.save(userToUpdate);
    }
 

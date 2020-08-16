@@ -1,4 +1,4 @@
-package com.liabrary.controller;
+package com.library.controller;
 
 
 import static org.junit.Assert.assertEquals;
@@ -11,7 +11,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
@@ -50,11 +49,7 @@ public class BookControllerTest {
     @Autowired
     WebApplicationContext webApplicationContext;
 
-    /** The my propertytestapp. */
-    @Value("${myProperty.test.app:0}")
-    private String myPropertytestapp;
-
-    /**
+     /**
      * Sets the up.
      */
     @Before
@@ -115,7 +110,7 @@ public class BookControllerTest {
         assertEquals(200, status);
         String content = mvcResult.getResponse().getContentAsString();
         ResponseDetails response = mapFromJson(content, ResponseDetails.class);
-        assertEquals("Book Added successfully", response.getMessageReason());
+        assertEquals("Book Added successfully", response.getMessage());
         System.out.println(" testAddBook Successfull");
     }
 

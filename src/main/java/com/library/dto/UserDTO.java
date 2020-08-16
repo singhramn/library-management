@@ -12,9 +12,6 @@ public class UserDTO {
 	/** The user id. */
 	private long userId;
 	
-	/** The password. */
-	private String password;
-	
 	/** The user name. */
 	private String userName;
 	
@@ -24,7 +21,7 @@ public class UserDTO {
 	/** The address. */
 	private String address;
 	
-	/** The phone umber. */
+	/** The phone Number. */
 	private String phoneUmber;
 	
 	/** The role id. */

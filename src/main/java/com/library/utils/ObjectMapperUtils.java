@@ -14,7 +14,7 @@ public class ObjectMapperUtils {
     
 	
     /**
-     * Model mapper property setting are specified in the following block.
+     * ModelMapper property setting are specified in the following block.
      * Default property matching strategy is set to Strict see {@link MatchingStrategies}
      * Custom mappings are added using {@link ModelMapper#addMappings(PropertyMap)}
      */

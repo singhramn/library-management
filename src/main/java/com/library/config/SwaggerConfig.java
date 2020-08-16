@@ -25,12 +25,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 public class SwaggerConfig extends WebMvcConfigurationSupport {
 	
 	/**
-	 * Product api.
+	 * Product libraryApi.
 	 *
-	 * @return the docket
+	 * @return the Docket Object
 	 */
 	@Bean
-	public Docket productApi() {
+	public Docket libraryApi() {
 		return new Docket(DocumentationType.SWAGGER_2).select()
 				.apis(RequestHandlerSelectors.basePackage("com.library.controller")).paths(regex("/.*")).build()
 				.apiInfo(metaData());
@@ -42,10 +42,10 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
 	 * @return the api info
 	 */
 	private ApiInfo metaData() {
-		return new ApiInfoBuilder().title("Library Manaagement REST API")
+		return new ApiInfoBuilder().title("Library Management REST API")
 				.description("\"Spring Boot REST API for Online Store\"").version("1.0.0")
-				.license("Library Manaagement Version 1.0").licenseUrl("https://www.library-mgmg/licenses/LICENSE-1.0\"")
-				.contact(new Contact("RamN", "https://library-mgmt/about/", "ram2.naresh@gmail.com")).build();
+				.license("Library Management Version 1.0").licenseUrl("https://www.library-management/licenses/LICENSE-1.0\"")
+				.contact(new Contact("RamN", "https://www.library-management/about/", "ram2.naresh@gmail.com")).build();
 	}
 
 	/**

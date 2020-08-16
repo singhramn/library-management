@@ -1,7 +1,7 @@
 /*
  * 
  */
-package com.library.service;
+package com.library.service.impl;
 
 
 import java.util.List;
@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.library.dao.repositories.LibraryRepository;
 import com.library.entity.Library;
+import com.library.service.LibraryService;
 
 /**
  * The Class LibraryServiceImpl.

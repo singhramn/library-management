@@ -42,7 +42,7 @@ public class LibraryController {
 
 	/** The LibraryService. */
 	@Autowired
-	LibraryService libraryService;
+	private LibraryService libraryService;
 
 	/**
 	 * Adds the library.
@@ -61,8 +61,8 @@ public class LibraryController {
 		try {
 			resLibrary = ObjectMapperUtils
 					.map((libraryService.addLibrary(ObjectMapperUtils.map(libDto, Library.class))), LibraryDTO.class);
-			responseDetails.setMessageID(Long.toString(resLibrary.getLibId()));
-			responseDetails.setMessageReason("Library Added successfully");
+			responseDetails.setMessageId(Long.toString(resLibrary.getLibId()));
+			responseDetails.setMessage("Library Added successfully");
 		} catch (Exception e) {
 			throw new LibraryException(AppConstants.EXCEPTION,
 					"getCause: " + e.getCause() + ": getMessage Starts: " + e.getMessage());
@@ -90,8 +90,8 @@ public class LibraryController {
 			LibraryDTO reslib = ObjectMapperUtils.map(
 					(libraryService.updateLibraryDetails(ObjectMapperUtils.map(libraryDTO, Library.class))),
 					LibraryDTO.class);
-			responseDetails.setMessageID(Long.toString(reslib.getLibId()));
-			responseDetails.setMessageReason("Library Updated successfully");
+			responseDetails.setMessageId(Long.toString(reslib.getLibId()));
+			responseDetails.setMessage("Library Updated successfully");
 		} catch (Exception e) {
 			throw new LibraryException(AppConstants.EXCEPTION,
 					"getCause: " + e.getCause() + ": getMessage Starts: " + e.getMessage());
@@ -114,8 +114,8 @@ public class LibraryController {
 
 		try {
 			if (libraryService.deleteLibraryById(id)) {
-				responseDetails.setMessageID(Long.toString(id));
-				responseDetails.setMessageReason("Library Deleted Sucessfully");
+				responseDetails.setMessageId(Long.toString(id));
+				responseDetails.setMessage("Library Deleted Sucessfully");
 			}
 		} catch (Exception e) {
 			throw new LibraryException(AppConstants.EXCEPTION,

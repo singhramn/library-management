@@ -26,10 +26,6 @@ public class User {
 	@Column(name = "Id", length = 8, unique = true, nullable = false)
 	private long userId;
 	
-	/** The password. */
-	@Column(name = "PASSWORD", nullable = false)
-	private String password;
-	
 	/** The user name. */
 	@Column(name = "NAME", nullable = false)
 	private String userName;
@@ -42,7 +38,7 @@ public class User {
 	@Column(name = "ADDRESS", nullable = false)
 	private String address;
 	
-	/** The phone umber. */
+	/** The phone Number. */
 	@Column(name = "PHONE_NUMBER", nullable = false)
 	private String phoneNumber;
 	

@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import com.library.constants.*;
+import com.library.dto.ResponseDetails;
 
 /**
  * The Class RestExceptionProcessor.
@@ -41,12 +42,12 @@ public class RestExceptionProcessor {
 	@ExceptionHandler(LibraryException.class)
 	@ResponseStatus(value = HttpStatus.BAD_REQUEST)
 	@ResponseBody
-	public MessageInfo proctorException(LibraryException ex) {
+	public ResponseDetails proctorException(LibraryException ex) {
 		String errorMessage = null;
 		Locale locale = LocaleContextHolder.getLocale();
 		errorMessage = messageSource.getMessage(ex.getErrorCode(),new String [] {ex.getParameterList()}, locale);
 		LOGGER.error(ex.getErrorCode() + " Exception cause: "+ex.getParameterList());
-		return new MessageInfo(AppConstants.FAILURE, errorMessage);
+		return new ResponseDetails(AppConstants.FAILURE, errorMessage);
 	}
 
 	/**
@@ -59,8 +60,8 @@ public class RestExceptionProcessor {
 	@ExceptionHandler(Exception.class)
 	@ResponseStatus(value = HttpStatus.NOT_FOUND)
 	@ResponseBody
-	public MessageInfo handleException(HttpServletRequest req, Exception ex) {
+	public ResponseDetails handleException(HttpServletRequest req, Exception ex) {
 		LOGGER.error(ex.getCause() + " " +ex.getMessage());
-		return new MessageInfo(AppConstants.FAILURE, AppConstants.FAILURE);
+		return new ResponseDetails(AppConstants.FAILURE, AppConstants.FAILURE);
 	}
 }

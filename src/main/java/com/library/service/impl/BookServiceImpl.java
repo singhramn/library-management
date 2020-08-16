@@ -1,7 +1,7 @@
 /**
  *
  */
-package com.library.service;
+package com.library.service.impl;
 
 import java.util.List;
 import java.util.Optional;
@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.library.dao.repositories.BookRepository;
 import com.library.entity.Book;
+import com.library.service.BookService;
 
 /**
  * The Class BookServiceImpl.
@@ -100,7 +101,6 @@ public class BookServiceImpl implements BookService {
 	 * @return the optional
 	 */
 	@Override
-	@Transactional
 	public Optional<Book> findBookById(Long bookId) {
 		return bookRepository.findById(bookId);
 	}

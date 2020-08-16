@@ -48,7 +48,7 @@ public class Book {
 	@Column(name = "YEAR_OF_PUBLICATION")
 	private String yearOfPublication;
 
-	/** The num of copies. */
+	/** The number of copies. */
 	@Column(name = "NUM_OF_COPIES")
 	private int numOfCopies;
 

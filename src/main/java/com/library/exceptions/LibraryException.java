@@ -15,7 +15,7 @@ public class LibraryException extends Exception {
 	private final String errorCode;
 
 	/** The parameter list. */
-	String parameterList;
+	private String parameterList;
 
 	/**
 	 * Instantiates a new library exception.
